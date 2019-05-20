@@ -7,7 +7,26 @@
     <body>
     
     
-   
+<form action="" method="post">
+  <div class="form-group">
+    
+    <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name" name="name">
+    
+  </div>
+  <div class="form-group">
+    
+    <input type="email" class="form-control" id="exampleInputPassword1" name="email" placeholder="email">
+  </div>
+  <div class="form-group">
+    
+    <input type="mobile" class="form-control" name="mobile" id="exampleInputPassword1" placeholder="mobile">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+        
+        
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -58,6 +77,61 @@ $conn->close();
         
         
         
+        
+<?php
+       
+        
+        
+        if(isset($_POST['submit'])){
+		
+		
+		
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$mobile = $_POST['mobile'];
+		
+		$error = 0;
+		$msg = "error!!!";
+		
+		if($name == ""){
+			$error = $error+1;
+			$user_error = "<span style='color:#f00'>* trip type required</span>";
+			$msg .= "<p style='color:#f00'>* name Required</p>";
+		}
+		if($email == ""){
+			$error = $error+1;
+			$msg .= "<p style='color:#f00'>* email Required</p>";
+		}
+		if($mobile == ""){
+			$error = $error+1;
+			$msg .= "<p style='color:#f00'>* mobile number Required</p>";
+		}
+		
+		if($error == 0){
+		
+			$insert = "INSERT INTO student VALUES('$name', '$email', '$mobile')";
+			if($insert){
+				try{
+					$object = new apps;
+					$object->insert($insert);
+					echo "Not inserted";
+				}catch(exception $e){
+					echo "inserted";
+					
+				}
+			}
+		
+		
+		}else{
+			echo $msg;
+		}
+	}
+
+        
+        
+        
+?>
+   
         
         
         

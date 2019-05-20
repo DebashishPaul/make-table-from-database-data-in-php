@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 
 $sql = "SELECT name, email, mobile FROM student";
 $result = $conn->query($sql);
-echo '<table class="table">
+echo '<table class="table bg-success">
 <thead class="thead-light">
     <tr>
       
@@ -39,12 +39,12 @@ if ($result->num_rows > 0) {
         
         
         
-        echo '<table class="table table-striped">
+        echo '<table class="table table-striped bg-success">
 
 <tr>
-<td>'.$row["name"].'</td>
-<td>'.$row["email"].'</td>
-<td>'.$row["mobile"].'</td>
+<td style="color:white";>'.$row["name"].'</td>
+<td style="color:#F5F553";>'.$row["email"].'</td>
+<td style="color:53F5EB";>'.$row["mobile"].'</td>
 </tr>
 </table>';
         
